@@ -66,7 +66,7 @@ def UsesColor(term, color_env_var, color_flag):
 
 class GTestColorTest(gtest_test_utils.TestCase):
 
-  def testNoEnvVarNoFlag(self):
+def testNoEnvVarNoFlag(self):
     """Tests the case when there's neither GTEST_COLOR nor --gtest_color."""
 
     if not IS_WINDOWS:
@@ -82,6 +82,8 @@ class GTestColorTest(gtest_test_utils.TestCase):
     self.assertTrue(UsesColor('xterm-ghostty', None, None))
     self.assertTrue(UsesColor('xterm-kitty', None, None))
     self.assertTrue(UsesColor('alacritty', None, None))
+    self.assertTrue(UsesColor('wezterm', None, None))
+    self.assertTrue(UsesColor('foot', None, None))
     self.assertTrue(UsesColor('xterm-256color', None, None))
 
   def testFlagOnly(self):
